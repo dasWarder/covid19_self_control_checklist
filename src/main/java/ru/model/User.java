@@ -5,8 +5,7 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
 
-public class User {
-    private Integer id;
+public class User extends AbstractBaseEntity{
     private String name;
     private String password;
     private String email;
@@ -14,7 +13,7 @@ public class User {
     private Set<Role> roles;
 
     public User(Integer id, String name, String password, String email, Date registered, Role role, Role...roles) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.password = password;
         this.email = email;
@@ -22,9 +21,6 @@ public class User {
         this.roles = EnumSet.of(role, roles);
     }
 
-    public Integer getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -46,10 +42,6 @@ public class User {
         return roles;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -69,6 +61,7 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
 
     @Override
     public String toString() {

@@ -2,27 +2,18 @@ package ru.model;
 
 import java.time.LocalDateTime;
 
-public class Statistic {
-    private Integer id;
+public class Statistic extends AbstractBaseEntity{
     private Double temperature;
     private LocalDateTime date;
 
     public Statistic(Integer id, Double temperature, LocalDateTime date) {
-        this.id = id;
+        super(id);
         this.temperature = temperature;
         this.date = date;
     }
 
     public Statistic(Double temperature, LocalDateTime date) {
         this(null, temperature, date);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Double getTemperature() {
