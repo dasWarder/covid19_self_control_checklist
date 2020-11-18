@@ -1,8 +1,16 @@
 package ru.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+
+@MappedSuperclass
+@Access(AccessType.FIELD)
 public abstract class AbstractBaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "generator", sequenceName = "global_seq", initialValue = 1, allocationSize = 1)
     protected Integer id;
 
     protected AbstractBaseEntity() {}

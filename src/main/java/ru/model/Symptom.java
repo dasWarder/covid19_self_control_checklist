@@ -1,10 +1,26 @@
 package ru.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
+@Entity
+@Table(name = "symptom")
 public class Symptom extends  AbstractBaseEntity{
+
+    @Column(name = "description", nullable = false)
+    @NotBlank
+    @Size(max = 250)
     private String description;
+
+    @ManyToMany(mappedBy = "symptoms")
     private Set<Statistic> statistics;
+
+    public Symptom() {}
 
     public Symptom(Integer id, String description) {
         super(id);
@@ -21,6 +37,14 @@ public class Symptom extends  AbstractBaseEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Statistic> getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Set<Statistic> statistics) {
+        this.statistics = statistics;
     }
 
     @Override
