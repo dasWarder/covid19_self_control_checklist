@@ -1,0 +1,1 @@
+# covid19_self_control_checklist
