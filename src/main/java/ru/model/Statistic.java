@@ -1,10 +1,12 @@
 package ru.model;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
-public class Statistic extends AbstractBaseEntity{
+public class Statistic extends AbstractBaseEntity {
     private Double temperature;
     private LocalDateTime date;
+    private Set<Symptom> symptoms;
 
     public Statistic(Integer id, Double temperature, LocalDateTime date) {
         super(id);

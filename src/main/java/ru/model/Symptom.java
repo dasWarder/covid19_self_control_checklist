@@ -1,7 +1,10 @@
 package ru.model;
 
+import java.util.Set;
+
 public class Symptom extends  AbstractBaseEntity{
     private String description;
+    private Set<Statistic> statistics;
 
     public Symptom(Integer id, String description) {
         super(id);
