@@ -1,5 +1,8 @@
 package ru.model;
 
+import org.hibernate.Hibernate;
+import org.springframework.util.Assert;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -27,10 +30,10 @@ public abstract class AbstractBaseEntity {
         this.id = id;
     }
 
-    //    public int id() {
-//        Assert.notNull(id, "Entity must have id");
-//        return id;
-//    }
+        public int id() {
+        Assert.notNull(id, "Entity must have id");
+        return id;
+    }
 
 
     public boolean isNew() {
@@ -42,21 +45,21 @@ public abstract class AbstractBaseEntity {
         return getClass().getSimpleName() + ": " + id;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) {
-//            return true;
-//        }
-//        if (o == null || !getClass().equals(Hibernate.getClass(o))) {
-//            return false;
-//        }
-//        AbstractBaseEntity that = (AbstractBaseEntity) o;
-//
-//        return id != null && id.equals(that.id);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || !getClass().equals(Hibernate.getClass(o))) {
+            return false;
+        }
+        AbstractBaseEntity that = (AbstractBaseEntity) o;
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

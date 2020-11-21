@@ -1,6 +1,7 @@
 package ru.config;
 
 
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,14 +15,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
-import org.apache.tomcat.jdbc.pool.DataSource;
 
 import javax.persistence.EntityManagerFactory;
 import java.util.Properties;
 
 @Configuration
 @ComponentScan("ru.**")
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "ru.repository")
 @EnableTransactionManagement
 @PropertySource("classpath:spring/postgresql.properties")
 public class WebConfig {
@@ -38,7 +38,7 @@ public class WebConfig {
 
 
          dataSource.setDriverClassName(environment.getProperty("database.driver"));
-         dataSource.setJdbcInterceptors(environment.getProperty("database.url"));
+         dataSource.setUrl(environment.getProperty("database.url"));
          dataSource.setUsername(environment.getProperty("database.username"));
          dataSource.setPassword(environment.getProperty("database.password"));
 

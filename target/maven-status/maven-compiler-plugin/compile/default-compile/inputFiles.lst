@@ -1,0 +1,10 @@
+E:\java\covid19_self_control_checklist\src\main\java\ru\model\Role.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\model\AbstractBaseEntity.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\model\Symptom.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\Main.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\repository\JpaStatisticRepository.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\model\Statistic.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\model\User.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\config\WebConfig.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\service\StatisticService.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\repository\StatisticRepository.java

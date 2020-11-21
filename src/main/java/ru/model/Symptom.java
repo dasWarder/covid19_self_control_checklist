@@ -1,9 +1,6 @@
 package ru.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -17,8 +14,9 @@ public class Symptom extends  AbstractBaseEntity{
     @Size(max = 250)
     private String description;
 
-    @ManyToMany(mappedBy = "symptoms")
+    @ManyToMany(mappedBy = "symptoms", fetch = FetchType.LAZY)
     private Set<Statistic> statistics;
+
 
     public Symptom() {}
 

@@ -20,12 +20,17 @@ public class Statistic extends AbstractBaseEntity {
     @NotNull
     private LocalDateTime date;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "symptom_x_statistic",
                 joinColumns = @JoinColumn(name = "statistic_id"),
                 inverseJoinColumns = @JoinColumn(name = "symptom_id")
     )
     private Set<Symptom> symptoms;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @NotNull
+    private User user;
 
 
     public Statistic() {}
@@ -62,6 +67,14 @@ public class Statistic extends AbstractBaseEntity {
 
     public void setSymptoms(Set<Symptom> symptoms) {
         this.symptoms = symptoms;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

@@ -42,6 +42,9 @@ public class User extends AbstractBaseEntity{
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Statistic> statistics;
+
     public User() {
 
     }
@@ -96,6 +99,13 @@ public class User extends AbstractBaseEntity{
         this.roles = roles;
     }
 
+    public Set<Statistic> getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Set<Statistic> statistics) {
+        this.statistics = statistics;
+    }
 
     @Override
     public String toString() {
