@@ -5,6 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumSet;
@@ -56,6 +57,10 @@ public class User extends AbstractBaseEntity{
         this.email = email;
         this.registered = registered;
         this.roles = EnumSet.of(role, roles);
+    }
+
+    public User(String name, String password, String email, Role role) {
+        this(null, name, password, email, new Date(), Role.USER);
     }
 
 

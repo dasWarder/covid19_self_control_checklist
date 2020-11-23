@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.model.Statistic;
 import ru.repository.DataJpaStatisticRepository;
+import ru.repository.StatisticRepository;
 
 import java.util.*;
 
@@ -11,7 +12,7 @@ import java.util.*;
 @Service
 public class StatisticService {
 
-    private DataJpaStatisticRepository dataJpaStatisticRepository;
+    private StatisticRepository dataJpaStatisticRepository;
 
     @Autowired
     public StatisticService(DataJpaStatisticRepository dataJpaStatisticRepository) {

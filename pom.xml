@@ -18,6 +18,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+    <slf4j.version>1.7.30</slf4j.version>
+    <logback.version>1.2.3</logback.version>
+
     <spring.version>5.2.8.RELEASE</spring.version>
     <spring-data-jpa.version>2.3.2.RELEASE</spring-data-jpa.version>
 
@@ -33,6 +36,25 @@
   </properties>
 
   <dependencies>
+    <!-- LOGGING -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+
     <!--- SPRING -->
     <dependency>
       <groupId>org.springframework</groupId>

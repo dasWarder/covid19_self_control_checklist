@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPerion="30 seconds">
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>E/java/covid19_self_control_checklist/log/covid19_checklist.log</file>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>slf4jlogbackexample.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{dd.MM.yyyy HH:mm:ss.SSS} %-5level  %logger{50}.%M:%L - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.postgresql" level="trace"/>
+
+    <root level="info">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+</configuration>

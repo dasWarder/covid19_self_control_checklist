@@ -1,10 +1,15 @@
+ru\repository\UserRepository.class
 ru\repository\JpaStatisticRepository.class
+ru\repository\JpaUserRepository.class
+ru\repository\DataJpaUserRepository.class
 ru\model\Statistic.class
 ru\service\StatisticService.class
 ru\config\WebConfig.class
 ru\model\User.class
 ru\Main.class
+ru\repository\DataJpaStatisticRepository.class
 ru\repository\StatisticRepository.class
+ru\service\UserService.class
 ru\model\AbstractBaseEntity.class
 ru\model\Role.class
 ru\model\Symptom.class

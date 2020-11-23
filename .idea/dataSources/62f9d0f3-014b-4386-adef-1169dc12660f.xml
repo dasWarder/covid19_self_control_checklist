@@ -784,12 +784,12 @@ false Z
 false Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1605964768</StartupTime>
+      <StartupTime>1606112671</StartupTime>
     </root>
     <database id="2" parent="1" name="covid">
       <ObjectId>75632</ObjectId>
       <Owner>user</Owner>
-      <IntrospectionStateNumber>33769</IntrospectionStateNumber>
+      <IntrospectionStateNumber>33778</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="crm">
@@ -862,7 +862,7 @@ false posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>562</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>33770</IntrospectionStateNumber>
+      <IntrospectionStateNumber>33779</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="2" name="btree">
@@ -1081,14 +1081,28 @@ datetime</ColNames>
 role</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="54" parent="33" name="user_role_index">
+    <index id="54" parent="33" name="user_roles_unique_idx">
+      <ObjectId>75928</ObjectId>
+      <StateNumber>33771</StateNumber>
+      <ColNames>user_id
+role</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="33" name="user_role_index">
       <ObjectId>75888</ObjectId>
       <StateNumber>33760</StateNumber>
       <ColNames>user_id
 role</ColNames>
       <UnderlyingIndexName>user_role_index</UnderlyingIndexName>
     </key>
-    <foreign-key id="55" parent="33" name="user_role_user_id_fkey">
+    <key id="56" parent="33" name="user_roles_unique_idx">
+      <ObjectId>75929</ObjectId>
+      <StateNumber>33771</StateNumber>
+      <ColNames>user_id
+role</ColNames>
+      <UnderlyingIndexName>user_roles_unique_idx</UnderlyingIndexName>
+    </key>
+    <foreign-key id="57" parent="33" name="user_role_user_id_fkey">
       <ObjectId>75889</ObjectId>
       <StateNumber>33760</StateNumber>
       <ColNames>user_id</ColNames>
@@ -1099,7 +1113,7 @@ role</ColNames>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="56" parent="34" name="id">
+    <column id="58" parent="34" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1107,21 +1121,21 @@ role</ColNames>
       <DefaultExpression>nextval(&apos;global_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="57" parent="34" name="name">
+    <column id="59" parent="34" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>33758</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="58" parent="34" name="password">
+    <column id="60" parent="34" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>33758</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="59" parent="34" name="registered">
+    <column id="61" parent="34" name="registered">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
@@ -1129,27 +1143,27 @@ role</ColNames>
       <DefaultExpression>now()</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <column id="60" parent="34" name="email">
+    <column id="62" parent="34" name="email">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>33758</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="61" parent="34" name="users_pkey">
+    <index id="63" parent="34" name="users_pkey">
       <ObjectId>75878</ObjectId>
       <StateNumber>33758</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="62" parent="34" name="uniq_email_index">
+    <index id="64" parent="34" name="uniq_email_index">
       <ObjectId>75880</ObjectId>
       <StateNumber>33759</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="63" parent="34" name="users_pkey">
+    <key id="65" parent="34" name="users_pkey">
       <ObjectId>75879</ObjectId>
       <StateNumber>33758</StateNumber>
       <ColNames>id</ColNames>

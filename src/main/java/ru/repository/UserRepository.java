@@ -1,8 +1,11 @@
 package ru.repository;
 
+import org.springframework.stereotype.Repository;
 import ru.model.User;
 
 import java.util.List;
+
+
 
 public interface UserRepository {
 
