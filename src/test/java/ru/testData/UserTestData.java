@@ -2,12 +2,15 @@ package ru.testData;
 
 import ru.model.Role;
 import ru.model.User;
+import util.TestMatcher;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
 
 public class UserTestData {
+
+    public static TestMatcher<User> USER_MATCHER = TestMatcher.getTestMatcher("registered", "roles", "statistic");
     public static final Integer USER_ID = 1;
     public static final Integer ADMIN_ID = 2;
 
