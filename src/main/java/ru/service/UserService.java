@@ -1,5 +1,6 @@
 package ru.service;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.model.User;
@@ -21,8 +22,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public boolean delete(int id) {
-        return userRepository.delete(id);
+    public boolean delete(int id) throws NotFoundException {
+        if(userRepository.get(id) != null) {
+            return userRepository.delete(id);
+        } else {
+            throw new NotFoundException("User not found");
+        }
     }
 
     public User get(int id) {
@@ -35,6 +40,10 @@ public class UserService {
 
     public List<User> getAll() {
         return userRepository.getAll();
+    }
+
+    public void update(User user) {
+        userRepository.save(user);
     }
 
 

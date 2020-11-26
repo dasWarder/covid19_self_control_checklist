@@ -42,7 +42,11 @@ public class StatisticTestData {
     public static final Symptom SYMPTOM_4 = new Symptom(6, "diarrhea");
     public static final Symptom SYMPTOM_5 = new Symptom(7, "chills");
 
-
+    static {
+        STATISTIC_1.setSymptoms(Set.of(SYMPTOM_1, SYMPTOM_3));
+        STATISTIC_2.setSymptoms(Set.of(SYMPTOM_1, SYMPTOM_2, SYMPTOM_3, SYMPTOM_4));
+        STATISTIC_3.setSymptoms(Set.of(SYMPTOM_5));
+    }
 
 
 

@@ -1,5 +1,6 @@
 package ru;
 
+import javassist.NotFoundException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.config.WebConfig;
 import ru.model.Role;
@@ -14,7 +15,7 @@ import java.util.List;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NotFoundException {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(WebConfig.class);
 
         StatisticService statisticService = applicationContext.getBean("statisticService", StatisticService.class);

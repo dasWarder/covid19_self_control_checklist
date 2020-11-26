@@ -2,6 +2,7 @@ package ru.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.model.Statistic;
 
 import java.util.*;
@@ -17,6 +18,7 @@ public class DataJpaStatisticRepository implements StatisticRepository {
         this.statisticRepository = statisticRepository;
         this.userRepository = userRepository;
     }
+
 
     public Statistic save(Statistic statistic, int userId) {
             if(!statistic.isNew() && get(statistic.getId(), userId) == null) {

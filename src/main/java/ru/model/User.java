@@ -27,7 +27,7 @@ public class User extends AbstractBaseEntity{
 
     @Column(name = "password", nullable = false)
     @NotBlank
-    @Size(min = 5, max = 100)
+    @Size(min = 4, max = 100)
     private String password;
 
     @Column(name = "email")
@@ -49,6 +49,7 @@ public class User extends AbstractBaseEntity{
     private Set<Role> roles;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @BatchSize(size = 250)
     private Set<Statistic> statistics;
 
     public User() {
