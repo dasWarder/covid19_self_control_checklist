@@ -12,8 +12,6 @@ import java.util.Set;
 public class Statistic extends AbstractBaseEntity {
 
     @Column(name = "temperature", nullable = false)
-    @NotBlank
-    @Size(max = 5)
     private Double temperature;
 
     @Column(name = "dateTime", nullable = false)

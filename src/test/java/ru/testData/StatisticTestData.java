@@ -49,5 +49,10 @@ public class StatisticTestData {
     }
 
 
+    public static Statistic getNewStatistic() {
+        return new Statistic(36.5, LocalDateTime.now());
+    }
+
+
 
 }
