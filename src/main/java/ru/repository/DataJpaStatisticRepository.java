@@ -39,8 +39,8 @@ public class DataJpaStatisticRepository implements StatisticRepository {
         return statisticRepository.getAll(userId);
     }
 
-    public int delete(int id, int userId) {
-        return statisticRepository.delete(id, userId);
+    public boolean delete(int id, int userId) {
+        return statisticRepository.delete(id, userId) != 0;
     }
 
     

@@ -1,24 +1,26 @@
 package ru.service;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.config.WebConfig;
+import ru.config.MainConfig;
 import ru.model.Statistic;
+import ru.util.exception.NotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static ru.testData.StatisticTestData.*;
 import static ru.testData.UserTestData.*;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(value = SpringRunner.class)
 @Sql(scripts = "classpath:db/populate.sql")
-@ContextConfiguration(classes = WebConfig.class)
+@ContextConfiguration(classes = MainConfig.class)
 public class StatisticServiceTest {
 
     @Autowired
@@ -33,19 +35,17 @@ public class StatisticServiceTest {
     @Test
     public void delete() {
         statisticService.delete(STATISTIC_1.getId(), USER_ID);
-        STATISTIC_MATCHER.assertMatch(statisticService.get(STATISTIC_1.getId(), USER_ID), null);
+        assertThrows(NotFoundException.class, () -> statisticService.get(STATISTIC_1.getId(), USER_ID));
     }
 
     @Test
     public void deleteWrongUser() {
-        statisticService.delete(STATISTIC_2.getId(), ADMIN_ID);
-        STATISTIC_MATCHER.assertMatch(statisticService.get(STATISTIC_2.getId(), USER_ID), STATISTIC_2);
+        assertThrows(NotFoundException.class, () -> statisticService.delete(STATISTIC_2.getId(), ADMIN_ID));
     }
 
     @Test
     public void deleteWrongId() {
-        statisticService.delete(4, ADMIN_ID);
-        STATISTIC_MATCHER.assertMatch(statisticService.get(4, ADMIN_ID), null);
+        assertThrows(NotFoundException.class, () -> statisticService.delete(INCORRECT_ID, ADMIN_ID));
     }
 
     @Test
@@ -56,14 +56,13 @@ public class StatisticServiceTest {
 
     @Test
     public void getWrongUserId() {
-        Statistic incorrectStat = statisticService.get(STATISTIC_1.getId(), ADMIN_ID);
-        STATISTIC_MATCHER.assertMatch(incorrectStat, null);
+        assertThrows(NotFoundException.class, () -> statisticService.get(STATISTIC_1.getId(), ADMIN_ID));
+
     }
 
     @Test
     public void getWrongStatId() {
-        Statistic incorrectStat = statisticService.get(20, USER_ID);
-        STATISTIC_MATCHER.assertMatch(incorrectStat, null);
+        assertThrows(NotFoundException.class, () -> statisticService.get(INCORRECT_ID, USER_ID));
     }
 
     @Test
@@ -79,12 +78,8 @@ public class StatisticServiceTest {
 
     @Test
     public void update() {
-        Statistic originalStat = statisticService.get(STATISTIC_ADMIN_1.getId(), ADMIN_ID);
-        originalStat.setTemperature(38.1);
-        originalStat.setDate(LocalDateTime.now());
-        Integer id = originalStat.getId();
-        Statistic save = statisticService.save(originalStat, ADMIN_ID);
-
-        STATISTIC_MATCHER.assertMatch(statisticService.get(id, ADMIN_ID), save);
+        Statistic updated = getUpdated();
+        statisticService.update(updated, ADMIN_ID);
+        STATISTIC_MATCHER.assertMatch(statisticService.get(STATISTIC_ADMIN_1.getId(), ADMIN_ID), getUpdated());
     }
 }

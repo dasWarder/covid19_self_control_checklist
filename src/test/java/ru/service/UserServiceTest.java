@@ -9,13 +9,14 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.config.WebConfig;
+import ru.config.MainConfig;
 import ru.model.Role;
 import ru.model.User;
 
 import java.util.List;
 
 import static ru.testData.UserTestData.*;
+import static org.junit.Assert.assertThrows;
 
 
 
@@ -23,7 +24,7 @@ import static ru.testData.UserTestData.*;
 
 @RunWith(value = SpringRunner.class)
 @Sql(scripts = "classpath:db/populate.sql")
-@ContextConfiguration(classes = WebConfig.class)
+@ContextConfiguration(classes = MainConfig.class)
 public class UserServiceTest {
 
     @Autowired
@@ -41,25 +42,25 @@ public class UserServiceTest {
     }
 
     @Test
-    public void delete() throws NotFoundException {
+    public void delete() {
         userService.delete(USER_ID);
-        USER_MATCHER.assertMatch(userService.get(1),null);
+        assertThrows(ru.util.exception.NotFoundException.class, () -> userService.get(USER_ID));
     }
 
     @Test
-    public void deleteNotFound() throws NotFoundException {
-        Assert.assertThrows(NotFoundException.class, () -> userService.delete(6));
+    public void deleteNotFound() {
+        assertThrows(ru.util.exception.NotFoundException.class, () -> userService.delete(INCORRECT_ID));
     }
 
     @Test
     public void get() {
-        User user = userService.get(1);
+        User user = userService.get(USER_ID);
         USER_MATCHER.assertMatch(user, USER);
     }
 
     @Test
     public void getNotFound() {
-        USER_MATCHER.assertMatch(userService.get(5), null);
+        assertThrows(ru.util.exception.NotFoundException.class, () -> userService.get(INCORRECT_ID));
     }
 
     @Test

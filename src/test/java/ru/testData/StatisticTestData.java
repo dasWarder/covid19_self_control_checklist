@@ -53,6 +53,15 @@ public class StatisticTestData {
         return new Statistic(36.5, LocalDateTime.now());
     }
 
+    public static Statistic getUpdated() {
+        return new Statistic(STATISTIC_ADMIN_1.getId(), 39.4,
+                LocalDateTime.of(2020,
+                        11,
+                        2,
+                        16,
+                        10));
+    }
+
 
 
 }

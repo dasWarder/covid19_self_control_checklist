@@ -10,5 +10,5 @@ public interface StatisticRepository {
 
     List<Statistic> getAll(int userId);
 
-    int delete(int id, int userId);
+    boolean delete(int id, int userId);
 }

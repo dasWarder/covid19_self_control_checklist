@@ -3,8 +3,10 @@ package ru.service;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import ru.model.User;
 import ru.repository.UserRepository;
+import static ru.util.ValidUtil.*;
 
 import java.util.List;
 
@@ -19,23 +21,19 @@ public class UserService {
     }
 
     public User save(User user) {
-        return userRepository.save(user);
+        return checkNotFoundWithId(userRepository.save(user), user.getId());
     }
 
-    public boolean delete(int id) throws NotFoundException {
-        if(userRepository.get(id) != null) {
-            return userRepository.delete(id);
-        } else {
-            throw new NotFoundException("User not found");
-        }
+    public void delete(int id)  {
+        checkNotFoundWithId(userRepository.delete(id), id);
     }
 
     public User get(int id) {
-        return userRepository.get(id);
+        return checkNotFoundWithId(userRepository.get(id), id);
     }
 
     public User getByEmail(String email) {
-        return userRepository.getByEmail(email);
+        return checkNotFound(userRepository.getByEmail(email), "email=" + email);
     }
 
     public List<User> getAll() {
@@ -43,7 +41,8 @@ public class UserService {
     }
 
     public void update(User user) {
-        userRepository.save(user);
+        Assert.notNull(user, "must be not null");
+        checkNotFoundWithId(userRepository.save(user), user.getId());
     }
 
 

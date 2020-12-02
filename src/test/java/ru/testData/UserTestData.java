@@ -13,6 +13,7 @@ public class UserTestData {
     public static TestMatcher<User> USER_MATCHER = TestMatcher.getTestMatcher("registered", "roles", "statistics");
     public static final Integer USER_ID = 1;
     public static final Integer ADMIN_ID = 2;
+    public static final Integer INCORRECT_ID = 25;
 
     public static final User USER = new User(1,
             "Alex",
