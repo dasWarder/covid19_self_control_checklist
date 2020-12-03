@@ -11,7 +11,7 @@ import static ru.util.ValidUtil.*;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService implements CrudUserService {
 
     private UserRepository userRepository;
 
