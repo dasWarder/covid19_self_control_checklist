@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(value = {"ru.controller", "ru.service"})
+@ComponentScan(value = {"ru.**"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Override

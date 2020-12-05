@@ -1,0 +1,5 @@
+ru\service\UserServiceTest.class
+ru\testData\StatisticTestData.class
+ru\testData\UserTestData.class
+util\TestMatcher.class
+ru\service\StatisticServiceTest.class
