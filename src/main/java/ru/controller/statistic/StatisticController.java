@@ -17,9 +17,9 @@ import java.util.*;
 @RequestMapping(value = "/statistic", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StatisticController {
 
-
     private CrudStatisticService statisticService;
 
+    @Autowired
     public StatisticController(CrudStatisticService statisticService) {
         this.statisticService = statisticService;
     }

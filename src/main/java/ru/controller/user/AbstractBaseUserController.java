@@ -3,6 +3,7 @@ package ru.controller.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import ru.model.User;
@@ -19,12 +20,9 @@ import static ru.util.ValidUtil.checkNotFoundWithId;
 
 abstract public class AbstractBaseUserController {
 
+    @Autowired
     protected CrudUserService userService;
 
-    @Autowired
-    public AbstractBaseUserController(CrudUserService userService) {
-        this.userService = userService;
-    }
 
     public AbstractBaseUserController() {};
 

@@ -13,7 +13,7 @@ import static ru.util.ValidUtil.*;
 
 
 @Service
-public class StatisticService implements CrudStatisticService{
+public class StatisticService implements CrudStatisticService {
 
     private StatisticRepository statisticRepository;
 

@@ -1,6 +1,8 @@
 package ru.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.hibernate.Hibernate;
+import org.springframework.data.domain.Persistable;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -9,7 +11,8 @@ import java.util.Objects;
 
 @MappedSuperclass
 @Access(AccessType.FIELD)
-public abstract class AbstractBaseEntity {
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+public abstract class AbstractBaseEntity implements Persistable<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -22,6 +25,7 @@ public abstract class AbstractBaseEntity {
         this.id = id;
     }
 
+    @Override
     public Integer getId() {
         return id;
     }
@@ -35,7 +39,7 @@ public abstract class AbstractBaseEntity {
         return id;
     }
 
-
+    @Override
     public boolean isNew() {
         return this.id == null;
     }
