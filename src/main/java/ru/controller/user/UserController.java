@@ -20,7 +20,7 @@ public class UserController extends AbstractBaseUserController {
     }
 
     @Override
-    @GetMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}")
     public User get(@PathVariable int id) {
         return super.get(id);
     }
