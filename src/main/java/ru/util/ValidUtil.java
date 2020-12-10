@@ -1,5 +1,7 @@
 package ru.util;
 
+import ru.model.AbstractBaseEntity;
+import ru.model.User;
 import ru.util.exception.NotFoundException;
 
 public class ValidUtil {
@@ -23,6 +25,14 @@ public class ValidUtil {
     public static void checkNotFound(boolean found, String msg) {
         if(!found) {
             throw new NotFoundException(msg);
+        }
+    }
+
+    public static void checkIdIsConsistent(AbstractBaseEntity entity, int id) {
+        if (entity.isNew()) {
+            entity.setId(id);
+        } else if (entity.id() != id) {
+            throw new IllegalArgumentException(entity + " must be with id=" + id);
         }
     }
 

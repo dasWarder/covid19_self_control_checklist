@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import ru.model.User;
 import ru.repository.UserRepository;
+import ru.util.ValidUtil;
+
 import static ru.util.ValidUtil.*;
 
 import java.util.List;

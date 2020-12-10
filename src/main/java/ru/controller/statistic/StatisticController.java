@@ -14,7 +14,7 @@ import ru.service.StatisticService;
 import java.util.*;
 
 @RestController
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/statistic", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StatisticController {
 
 
@@ -24,7 +24,7 @@ public class StatisticController {
         this.statisticService = statisticService;
     }
 
-    @PostMapping(value = "/statistic", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Statistic> save(@RequestBody Statistic statistic, @RequestParam(defaultValue = "0") int userId) {
         Statistic saveOrUpdate = statistic;
         if(statistic.getId() == null) {
@@ -36,19 +36,19 @@ public class StatisticController {
         return new ResponseEntity<>(saveOrUpdate, HttpStatus.CREATED);
     }
 
-    @GetMapping("/statistic/{id}")
+    @GetMapping("/{id}")
     public Statistic get(@PathVariable int id, @RequestParam(defaultValue = "0") int userId) {
 
         return statisticService.get(id, 1);
     }
 
-    @GetMapping("/statistic")
+    @GetMapping
     public List<Statistic> getAll(@RequestParam(defaultValue = "0") int userId) {
         return statisticService.getAll(1);
 
     }
 
-    @DeleteMapping("/statistic/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id, @RequestParam(defaultValue = "0") int userId) {
         statisticService.delete(id, userId);
