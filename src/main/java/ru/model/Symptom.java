@@ -1,5 +1,7 @@
 package ru.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -15,6 +17,7 @@ public class Symptom extends  AbstractBaseEntity{
     private String description;
 
     @ManyToMany(mappedBy = "symptoms", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Statistic> statistics;
 
 

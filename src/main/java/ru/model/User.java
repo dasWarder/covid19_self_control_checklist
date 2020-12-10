@@ -1,5 +1,6 @@
 package ru.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -50,6 +51,7 @@ public class User extends AbstractBaseEntity{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @BatchSize(size = 250)
+    @JsonIgnore
     private Set<Statistic> statistics;
 
     public User() {
