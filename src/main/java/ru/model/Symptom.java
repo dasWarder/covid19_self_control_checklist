@@ -17,7 +17,6 @@ public class Symptom extends  AbstractBaseEntity{
     private String description;
 
     @ManyToMany(mappedBy = "symptoms", fetch = FetchType.LAZY)
-    @JsonIgnore
     private Set<Statistic> statistics;
 
 

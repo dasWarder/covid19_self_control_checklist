@@ -25,8 +25,8 @@ public class Statistic extends AbstractBaseEntity {
     @Column(name = "dateTime", nullable = false)
     @NotNull
 //    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime date;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -39,7 +39,6 @@ public class Statistic extends AbstractBaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
-    @JsonIgnore
     private User user;
 
 

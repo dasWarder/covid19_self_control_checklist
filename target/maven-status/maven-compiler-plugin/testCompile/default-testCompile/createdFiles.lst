@@ -1,5 +1,9 @@
+ru\controller\statistic\StatisticControllerTest.class
+ru\controller\AbstractControllerTest.class
 ru\service\UserServiceTest.class
-ru\testData\StatisticTestData.class
 ru\testData\UserTestData.class
 util\TestMatcher.class
+ru\controller\user\AdminControllerTest.class
+ru\controller\user\UserControllerTest.class
+ru\testData\StatisticTestData.class
 ru\service\StatisticServiceTest.class

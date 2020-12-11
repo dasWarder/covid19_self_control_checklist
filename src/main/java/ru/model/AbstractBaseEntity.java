@@ -10,8 +10,8 @@ import java.util.Objects;
 
 
 @MappedSuperclass
-@Access(AccessType.FIELD)
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
+//@Access(AccessType.FIELD)
+//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public abstract class AbstractBaseEntity implements Persistable<Integer> {
 
     @Id

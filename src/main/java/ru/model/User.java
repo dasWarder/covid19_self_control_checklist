@@ -59,7 +59,6 @@ public class User extends AbstractBaseEntity{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @BatchSize(size = 250)
-    @JsonIgnore
     private Set<Statistic> statistics;
 
     public User() {
