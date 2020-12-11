@@ -1,11 +1,13 @@
 package ru.service;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.Extensions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.config.MainConfig;
 import ru.model.Statistic;
@@ -14,11 +16,12 @@ import ru.util.exception.NotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static ru.testData.StatisticTestData.*;
 import static ru.testData.UserTestData.*;
-import static org.junit.Assert.assertThrows;
 
-@RunWith(value = SpringRunner.class)
+
+@ExtendWith(SpringExtension.class)
 @Sql(scripts = "classpath:db/populate.sql")
 @ContextConfiguration(classes = MainConfig.class)
 public class StatisticServiceTest {

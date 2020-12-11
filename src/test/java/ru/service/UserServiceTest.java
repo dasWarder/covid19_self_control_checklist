@@ -1,13 +1,13 @@
 package ru.service;
 
-import javassist.NotFoundException;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.config.MainConfig;
 import ru.model.Role;
@@ -15,14 +15,15 @@ import ru.model.User;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static ru.testData.UserTestData.*;
-import static org.junit.Assert.assertThrows;
 
 
 
 
 
-@RunWith(value = SpringRunner.class)
+
+@ExtendWith(SpringExtension.class)
 @Sql(scripts = "classpath:db/populate.sql")
 @ContextConfiguration(classes = MainConfig.class)
 public class UserServiceTest {
@@ -71,7 +72,7 @@ public class UserServiceTest {
 
     @Test
     public void duplicateMail() {
-        Assert.assertThrows(DataAccessException.class, () -> userService.save(
+        assertThrows(DataAccessException.class, () -> userService.save(
                 new User(null, "duplicated", "password", "j@gmail.com", Role.ADMIN)
         ));
     }
