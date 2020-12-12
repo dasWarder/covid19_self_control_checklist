@@ -27,6 +27,7 @@ import java.util.Properties;
 public class MainConfig {
     private final Environment environment;
 
+
     public MainConfig(Environment environment) {
         this.environment = environment;
     }
@@ -76,7 +77,6 @@ public class MainConfig {
 
     @Bean
     public PlatformTransactionManager transactionManager() {
-
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory());
         return txManager;

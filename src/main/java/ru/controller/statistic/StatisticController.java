@@ -19,7 +19,7 @@ import java.util.*;
 @RequestMapping(value = "/statistic", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StatisticController {
     private final Logger logger = LoggerFactory.getLogger(StatisticController.class);
-
+    public static Integer TEST_USER_ID = 1;
 
     private CrudStatisticService statisticService;
 
@@ -45,19 +45,19 @@ public class StatisticController {
     public Statistic get(@PathVariable int id, @RequestParam(defaultValue = "0") int userId) {
         logger.debug("Get entity with id=" + id);
 
-        return statisticService.get(id, 1);
+        return statisticService.get(id, TEST_USER_ID);
     }
 
     @GetMapping
     public List<Statistic> getAll(@RequestParam(defaultValue = "0") int userId) {
         logger.debug("Get all for user " + userId);
-        return statisticService.getAll(1);
+        return statisticService.getAll( TEST_USER_ID);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id, @RequestParam(defaultValue = "0") int userId) {
         logger.debug("Delete entity with id=" + id);
-        statisticService.delete(id, userId);
+        statisticService.delete(id,  TEST_USER_ID);
     }
 }

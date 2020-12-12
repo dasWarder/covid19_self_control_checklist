@@ -8,7 +8,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 import ru.config.MainConfig;
 import ru.model.Role;
 import ru.model.User;
@@ -17,8 +16,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static ru.testData.UserTestData.*;
-
-
 
 
 

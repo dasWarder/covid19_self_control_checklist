@@ -14,6 +14,7 @@ E:\java\covid19_self_control_checklist\src\main\java\ru\service\StatisticService
 E:\java\covid19_self_control_checklist\src\main\java\ru\model\Role.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\service\CrudStatisticService.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\config\MainConfig.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\util\jackson\JsonUtil.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\repository\UserRepository.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\controller\user\UserController.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\util\ValidUtil.java

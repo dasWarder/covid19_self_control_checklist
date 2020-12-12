@@ -12,6 +12,7 @@ import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -74,12 +75,24 @@ public class User extends AbstractBaseEntity{
         this.roles = EnumSet.of(role, roles);
     }
 
+    public User(User user) {
+        this(user.getId(), user.getName(), user.getPassword(), user.getEmail(), user.getRegistered(), user.getRoles());
+    }
+
     public User(String name, String password, String email, Role role) {
         this(null, name, password, email, new Date(), Role.USER);
     }
 
     public User(Integer id, String name, String password, String email, Role role) {
         this(id, name, password, email, new Date(), Role.USER);
+    }
+    public User(Integer id, String name, String email, String password, Date registered, Collection<Role> roles) {
+        super(id);
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.registered = registered;
+        setRoles(roles);
     }
 
 
@@ -125,6 +138,10 @@ public class User extends AbstractBaseEntity{
 
     public Set<Statistic> getStatistics() {
         return statistics;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
     }
 
     public void setStatistics(Set<Statistic> statistics) {

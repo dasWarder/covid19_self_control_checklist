@@ -34,7 +34,7 @@ public abstract class AbstractBaseEntity implements Persistable<Integer> {
         this.id = id;
     }
 
-        public int id() {
+    public int id() {
         Assert.notNull(id, "Entity must have id");
         return id;
     }

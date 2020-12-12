@@ -4,6 +4,7 @@ package ru.controller;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.Extensions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -19,6 +20,7 @@ import javax.annotation.PostConstruct;
 @SpringJUnitWebConfig(WebConfig.class)
 @WebAppConfiguration
 @ExtendWith(SpringExtension.class)
+@Sql(scripts = "classpath:db/populate.sql")
 abstract public class AbstractControllerTest {
 
     protected MockMvc mockMvc;

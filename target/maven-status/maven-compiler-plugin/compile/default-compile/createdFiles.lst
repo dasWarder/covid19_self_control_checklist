@@ -12,9 +12,11 @@ ru\controller\user\AbstractBaseUserController.class
 ru\repository\UserRepository.class
 ru\repository\JpaUserRepository.class
 ru\util\ValidUtil.class
+ru\util\jackson\JsonUtil.class
 ru\repository\DataJpaUserRepository.class
 ru\model\Statistic.class
 ru\controller\user\AdminController.class
+ru\util\jackson\JsonUtil$1.class
 ru\model\User.class
 ru\controller\user\UserController.class
 ru\Main.class
