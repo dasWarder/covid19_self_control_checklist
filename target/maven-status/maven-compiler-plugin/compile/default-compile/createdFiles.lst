@@ -3,7 +3,9 @@ ru\repository\JpaStatisticRepository.class
 ru\service\CrudUserService.class
 ru\service\StatisticService.class
 ru\config\MainConfig.class
+ru\config\WebSecurityInitializer.class
 ru\config\WebConfig.class
+ru\config\SpringSecurity.class
 ru\model\Role.class
 ru\model\Symptom.class
 ru\service\CrudStatisticService.class

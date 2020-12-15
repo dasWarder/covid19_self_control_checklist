@@ -16,9 +16,11 @@ E:\java\covid19_self_control_checklist\src\main\java\ru\service\CrudStatisticSer
 E:\java\covid19_self_control_checklist\src\main\java\ru\config\MainConfig.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\util\jackson\JsonUtil.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\repository\UserRepository.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\config\SpringSecurity.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\controller\user\UserController.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\util\ValidUtil.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\config\DispatcherInit.java
+E:\java\covid19_self_control_checklist\src\main\java\ru\config\WebSecurityInitializer.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\model\AbstractBaseEntity.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\util\exception\NotFoundException.java
 E:\java\covid19_self_control_checklist\src\main\java\ru\Main.java
