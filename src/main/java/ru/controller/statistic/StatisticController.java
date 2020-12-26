@@ -28,11 +28,11 @@ public class StatisticController {
     public static Integer TEST_USER_ID = 1;
 
     private CrudStatisticService statisticService;
-    @Autowired
     private UserService userService;
 
     @Autowired
-    public StatisticController(CrudStatisticService statisticService) {
+    public StatisticController(UserService userService, CrudStatisticService statisticService) {
+        this.userService = userService;
         this.statisticService = statisticService;
     }
 
