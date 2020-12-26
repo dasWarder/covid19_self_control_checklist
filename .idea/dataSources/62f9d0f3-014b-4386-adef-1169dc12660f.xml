@@ -784,12 +784,12 @@ false Z
 false Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1607757805</StartupTime>
+      <StartupTime>1608969115</StartupTime>
     </root>
     <database id="2" parent="1" name="covid">
       <ObjectId>75632</ObjectId>
       <Owner>user</Owner>
-      <IntrospectionStateNumber>36541</IntrospectionStateNumber>
+      <IntrospectionStateNumber>36775</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="crm">
@@ -862,7 +862,7 @@ false posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>562</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>36542</IntrospectionStateNumber>
+      <IntrospectionStateNumber>36776</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="2" name="btree">
@@ -903,9 +903,9 @@ false posixrules
     <language id="26" parent="2" name="plpgsql"/>
     <language id="27" parent="2" name="sql"/>
     <sequence id="28" parent="17" name="global_seq">
-      <ObjectId>75868</ObjectId>
+      <ObjectId>77908</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>33757</StateNumber>
+      <StateNumber>36763</StateNumber>
     </sequence>
     <sequence id="29" parent="17" name="hibernate_sequence">
       <ObjectId>77143</ObjectId>
@@ -913,35 +913,35 @@ false posixrules
       <StateNumber>35587</StateNumber>
     </sequence>
     <table id="30" parent="17" name="statistic">
-      <ObjectId>75900</ObjectId>
+      <ObjectId>77941</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>33764</StateNumber>
+      <StateNumber>36770</StateNumber>
     </table>
     <table id="31" parent="17" name="symptom">
-      <ObjectId>75894</ObjectId>
+      <ObjectId>77935</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>33764</StateNumber>
+      <StateNumber>36770</StateNumber>
     </table>
     <table id="32" parent="17" name="symptom_x_statistic">
-      <ObjectId>75915</ObjectId>
+      <ObjectId>77956</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>33764</StateNumber>
+      <StateNumber>36770</StateNumber>
     </table>
     <table id="33" parent="17" name="user_role">
-      <ObjectId>75881</ObjectId>
+      <ObjectId>77922</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>33760</StateNumber>
+      <StateNumber>36766</StateNumber>
     </table>
     <table id="34" parent="17" name="users">
-      <ObjectId>75870</ObjectId>
+      <ObjectId>77910</ObjectId>
       <Owner>user</Owner>
-      <StateNumber>33762</StateNumber>
+      <StateNumber>36768</StateNumber>
     </table>
     <column id="35" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33762</StateNumber>
+      <StateNumber>36768</StateNumber>
       <DefaultExpression>nextval(&apos;global_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
@@ -949,49 +949,49 @@ false posixrules
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33762</StateNumber>
+      <StateNumber>36768</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="37" parent="30" name="temperature">
       <Position>3</Position>
       <DataType>numeric|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33762</StateNumber>
+      <StateNumber>36768</StateNumber>
       <TypeId>1700</TypeId>
     </column>
     <column id="38" parent="30" name="datetime">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33762</StateNumber>
+      <StateNumber>36768</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="39" parent="30" name="statistic_pkey">
-      <ObjectId>75907</ObjectId>
-      <StateNumber>33762</StateNumber>
+      <ObjectId>77948</ObjectId>
+      <StateNumber>36768</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <index id="40" parent="30" name="statistic_user_index">
-      <ObjectId>75914</ObjectId>
-      <StateNumber>33763</StateNumber>
+      <ObjectId>77955</ObjectId>
+      <StateNumber>36769</StateNumber>
       <ColNames>user_id
 datetime</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="41" parent="30" name="statistic_pkey">
-      <ObjectId>75908</ObjectId>
-      <StateNumber>33762</StateNumber>
+      <ObjectId>77949</ObjectId>
+      <StateNumber>36768</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>statistic_pkey</UnderlyingIndexName>
     </key>
     <foreign-key id="42" parent="30" name="statistic_user_id_fkey">
-      <ObjectId>75909</ObjectId>
-      <StateNumber>33762</StateNumber>
+      <ObjectId>77950</ObjectId>
+      <StateNumber>36768</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>75870</RefTableId>
+      <RefTableId>77910</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -1002,7 +1002,7 @@ datetime</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33761</StateNumber>
+      <StateNumber>36767</StateNumber>
       <DefaultExpression>nextval(&apos;global_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
@@ -1010,19 +1010,19 @@ datetime</ColNames>
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33761</StateNumber>
+      <StateNumber>36767</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="45" parent="31" name="symptom_pkey">
-      <ObjectId>75898</ObjectId>
-      <StateNumber>33761</StateNumber>
+      <ObjectId>77939</ObjectId>
+      <StateNumber>36767</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <key id="46" parent="31" name="symptom_pkey">
-      <ObjectId>75899</ObjectId>
-      <StateNumber>33761</StateNumber>
+      <ObjectId>77940</ObjectId>
+      <StateNumber>36767</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>symptom_pkey</UnderlyingIndexName>
@@ -1030,20 +1030,20 @@ datetime</ColNames>
     <column id="47" parent="32" name="statistic_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>33764</StateNumber>
+      <StateNumber>36770</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="48" parent="32" name="symptom_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>33764</StateNumber>
+      <StateNumber>36770</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="49" parent="32" name="symptom_x_statistic_statistic_id_fkey">
-      <ObjectId>75918</ObjectId>
-      <StateNumber>33764</StateNumber>
+      <ObjectId>77959</ObjectId>
+      <StateNumber>36770</StateNumber>
       <ColNames>statistic_id</ColNames>
-      <RefTableId>75900</RefTableId>
+      <RefTableId>77941</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>statistic</RefTableName>
       <RefKeyName>statistic_pkey</RefKeyName>
@@ -1051,10 +1051,10 @@ datetime</ColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="50" parent="32" name="symptom_x_statistic_symptom_id_fkey">
-      <ObjectId>75923</ObjectId>
-      <StateNumber>33764</StateNumber>
+      <ObjectId>77964</ObjectId>
+      <StateNumber>36770</StateNumber>
       <ColNames>symptom_id</ColNames>
-      <RefTableId>75894</RefTableId>
+      <RefTableId>77935</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>symptom</RefTableName>
       <RefKeyName>symptom_pkey</RefKeyName>
@@ -1065,107 +1065,101 @@ datetime</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33760</StateNumber>
+      <StateNumber>36766</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="52" parent="33" name="role">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>33760</StateNumber>
+      <StateNumber>36766</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="53" parent="33" name="user_role_index">
-      <ObjectId>75887</ObjectId>
-      <StateNumber>33760</StateNumber>
+      <ObjectId>77928</ObjectId>
+      <StateNumber>36766</StateNumber>
       <ColNames>user_id
 role</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="54" parent="33" name="user_roles_unique_idx">
-      <ObjectId>75928</ObjectId>
-      <StateNumber>33771</StateNumber>
-      <ColNames>user_id
-role</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="55" parent="33" name="user_role_index">
-      <ObjectId>75888</ObjectId>
-      <StateNumber>33760</StateNumber>
+    <key id="54" parent="33" name="user_role_index">
+      <ObjectId>77929</ObjectId>
+      <StateNumber>36766</StateNumber>
       <ColNames>user_id
 role</ColNames>
       <UnderlyingIndexName>user_role_index</UnderlyingIndexName>
     </key>
-    <key id="56" parent="33" name="user_roles_unique_idx">
-      <ObjectId>75929</ObjectId>
-      <StateNumber>33771</StateNumber>
-      <ColNames>user_id
-role</ColNames>
-      <UnderlyingIndexName>user_roles_unique_idx</UnderlyingIndexName>
-    </key>
-    <foreign-key id="57" parent="33" name="user_role_user_id_fkey">
-      <ObjectId>75889</ObjectId>
-      <StateNumber>33760</StateNumber>
+    <foreign-key id="55" parent="33" name="user_role_user_id_fkey">
+      <ObjectId>77930</ObjectId>
+      <StateNumber>36766</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>75870</RefTableId>
+      <RefTableId>77910</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="58" parent="34" name="id">
+    <column id="56" parent="34" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33758</StateNumber>
+      <StateNumber>36764</StateNumber>
       <DefaultExpression>nextval(&apos;global_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="59" parent="34" name="name">
+    <column id="57" parent="34" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33758</StateNumber>
+      <StateNumber>36764</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="34" name="password">
+    <column id="58" parent="34" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33758</StateNumber>
+      <StateNumber>36764</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="34" name="registered">
+    <column id="59" parent="34" name="registered">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33758</StateNumber>
+      <StateNumber>36764</StateNumber>
       <DefaultExpression>now()</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <column id="62" parent="34" name="email">
+    <column id="60" parent="34" name="enabled">
       <Position>5</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>36764</StateNumber>
+      <DefaultExpression>true</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="61" parent="34" name="email">
+      <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>33758</StateNumber>
+      <StateNumber>36764</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="63" parent="34" name="users_pkey">
-      <ObjectId>75878</ObjectId>
-      <StateNumber>33758</StateNumber>
+    <index id="62" parent="34" name="users_pkey">
+      <ObjectId>77919</ObjectId>
+      <StateNumber>36764</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="64" parent="34" name="uniq_email_index">
-      <ObjectId>75880</ObjectId>
-      <StateNumber>33759</StateNumber>
+    <index id="63" parent="34" name="uniq_email_index">
+      <ObjectId>77921</ObjectId>
+      <StateNumber>36765</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="65" parent="34" name="users_pkey">
-      <ObjectId>75879</ObjectId>
-      <StateNumber>33758</StateNumber>
+    <key id="64" parent="34" name="users_pkey">
+      <ObjectId>77920</ObjectId>
+      <StateNumber>36764</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

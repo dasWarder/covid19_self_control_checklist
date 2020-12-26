@@ -1,7 +1,7 @@
 package ru.config;
 
 
-import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,17 +11,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-
 
 import javax.persistence.EntityManagerFactory;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(value = {"ru.model", "ru.repository", "ru.service"})
+@ComponentScan(value = {"ru.model", "ru.repository", "ru.service", "ru.config"})
 @EnableJpaRepositories(basePackages = "ru.repository")
 @EnableTransactionManagement
 @PropertySource("classpath:spring/postgresql.properties")
@@ -34,18 +31,25 @@ public class MainConfig {
     }
 
     @Bean
-    public DataSource getDataSource() {
+    public BasicDataSource getDataSource() {
 
-         DataSource dataSource = new DataSource();
-
+        BasicDataSource dataSource = new BasicDataSource();
 
          dataSource.setDriverClassName(environment.getProperty("database.driver"));
          dataSource.setUrl(environment.getProperty("database.url"));
          dataSource.setUsername(environment.getProperty("database.username"));
          dataSource.setPassword(environment.getProperty("database.password"));
+         dataSource.setMinIdle(convertToInt(environment.getProperty("database.pool.minIdle")));
+         dataSource.setMaxIdle(convertToInt(environment.getProperty("database.pool.maxIdle")));
+         dataSource.setMaxOpenPreparedStatements(convertToInt(environment.getProperty("database.pool.maxOpenPreparedStatements")));
 
         return dataSource;
     }
+
+    private Integer convertToInt(String prop) {
+        return Integer.parseInt(prop);
+    }
+
 
     @Bean
     public Properties getHibernateProperties() {

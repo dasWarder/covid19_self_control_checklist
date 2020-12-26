@@ -1,10 +1,12 @@
 package ru.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import ru.model.Statistic;
+import ru.model.User;
 import ru.repository.DataJpaStatisticRepository;
 import ru.repository.StatisticRepository;
 
@@ -16,6 +18,7 @@ import static ru.util.ValidUtil.*;
 public class StatisticService implements CrudStatisticService {
 
     private StatisticRepository statisticRepository;
+
 
     @Autowired
     public StatisticService(StatisticRepository statisticRepository) {

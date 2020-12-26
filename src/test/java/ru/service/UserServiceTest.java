@@ -70,7 +70,7 @@ public class UserServiceTest {
     @Test
     public void duplicateMail() {
         assertThrows(DataAccessException.class, () -> userService.save(
-                new User(null, "duplicated", "password", "j@gmail.com", Role.ADMIN)
+                new User(null, "duplicated", "password", "j@gmail.com", Role.ROLE_ADMIN)
         ));
     }
 

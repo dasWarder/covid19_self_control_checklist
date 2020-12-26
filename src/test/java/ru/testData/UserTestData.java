@@ -19,16 +19,16 @@ public class UserTestData {
             "Alex",
             "password",
             "a@gmail.com",
-            Role.USER);
+            Role.ROLE_USER);
     public static final User ADMIN = new User(2,
             "Jack",
             "admin",
             "j@gmail.com",
-            Role.ADMIN);
+            Role.ROLE_ADMIN);
 
 
     public static User getNew() {
-        return new User(null, "User", "pass", "u@gmail.com", new Date(), Role.USER);
+        return new User(null, "User", "pass", "u@gmail.com", true, new Date(), Role.ROLE_USER);
     }
 
 

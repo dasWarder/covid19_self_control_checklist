@@ -2,6 +2,12 @@ package ru.service;
 
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import ru.model.User;
@@ -13,9 +19,10 @@ import static ru.util.ValidUtil.*;
 import java.util.List;
 
 @Service
-public class UserService implements CrudUserService {
+public class UserService implements CrudUserService, UserDetailsService {
 
     private UserRepository userRepository;
+
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -23,7 +30,8 @@ public class UserService implements CrudUserService {
     }
 
     public User save(User user) {
-        return checkNotFoundWithId(userRepository.save(user), user.getId());
+        return checkNotFoundWithId(
+                userRepository.save(user), user.getId());
     }
 
     public void delete(int id)  {
@@ -48,4 +56,14 @@ public class UserService implements CrudUserService {
     }
 
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.getByEmail(email);
+
+        if(user == null) {
+            throw new UsernameNotFoundException("User " + email + " is not found");
+        }
+
+        return user;
+    }
 }

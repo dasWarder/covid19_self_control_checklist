@@ -6,12 +6,12 @@ DELETE FROM users;
 ALTER SEQUENCE global_seq RESTART WITH 1;
 
 INSERT INTO users (name, password, email) VALUES
-('Alex', 'password', 'a@gmail.com'),
-('Jack', 'admin', 'j@gmail.com');
+('Alex', '{noop}password', 'a@gmail.com'),
+('Jack', '{noop}admin', 'j@gmail.com');
 
 INSERT INTO user_role (user_id, role) VALUES
-(1, 'USER'),
-(2, 'ADMIN');
+(1, 'ROLE_USER'),
+(2, 'ROLE_ADMIN');
 
 INSERT INTO symptom (description) VALUES
 ('snuffle'),

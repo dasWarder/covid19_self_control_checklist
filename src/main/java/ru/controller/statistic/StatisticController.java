@@ -8,11 +8,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.model.Statistic;
+import ru.model.User;
+import ru.repository.DataJpaUserRepository;
 import ru.service.CrudStatisticService;
 import ru.service.StatisticService;
+import ru.service.UserService;
+
 import java.util.*;
 
 @RestController
@@ -22,6 +28,8 @@ public class StatisticController {
     public static Integer TEST_USER_ID = 1;
 
     private CrudStatisticService statisticService;
+    @Autowired
+    private UserService userService;
 
     @Autowired
     public StatisticController(CrudStatisticService statisticService) {
@@ -31,10 +39,12 @@ public class StatisticController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Statistic> save(@RequestBody Statistic statistic, @RequestParam(defaultValue = "0") int userId) {
         Statistic saveOrUpdate = statistic;
+        User user = getLoggedUser();
+
         if(statistic.getId() == null) {
-            saveOrUpdate = statisticService.save(statistic, userId);
+            saveOrUpdate = statisticService.save(statistic, user.getId());
         } else {
-            statisticService.update(statistic, userId);
+            statisticService.update(statistic, user.getId());
         }
         logger.debug("Save entity with id=" + statistic.getId());
 
@@ -44,20 +54,30 @@ public class StatisticController {
     @GetMapping("/{id}")
     public Statistic get(@PathVariable int id, @RequestParam(defaultValue = "0") int userId) {
         logger.debug("Get entity with id=" + id);
-
-        return statisticService.get(id, TEST_USER_ID);
+        User user = getLoggedUser();
+        return statisticService.get(id, user.getId());
     }
 
     @GetMapping
     public List<Statistic> getAll(@RequestParam(defaultValue = "0") int userId) {
         logger.debug("Get all for user " + userId);
-        return statisticService.getAll( TEST_USER_ID);
+        User user = getLoggedUser();
+        return statisticService.getAll(user.getId());
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id, @RequestParam(defaultValue = "0") int userId) {
         logger.debug("Delete entity with id=" + id);
-        statisticService.delete(id,  TEST_USER_ID);
+        User user = getLoggedUser();
+        statisticService.delete(id, user.getId());
+    }
+
+    private User getLoggedUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+
+        User user = userService.getByEmail(name);
+        return user;
     }
 }
