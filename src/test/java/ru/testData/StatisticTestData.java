@@ -12,29 +12,13 @@ public class StatisticTestData {
     public static TestMatcher<Statistic> STATISTIC_MATCHER = TestMatcher.getTestMatcher("date", "user", "symptoms");
 
     public static final Statistic STATISTIC_1 = new Statistic(8, 37.2,
-            LocalDateTime.of(2020,
-            10,
-            30,
-            10,
-            00));
+            LocalDateTime.of(2020,10,30,10,00));
     public static final Statistic STATISTIC_2 = new Statistic(9, 37.4,
-            LocalDateTime.of(2020,
-                    10,
-                    30,
-                    15,
-                    00));
+            LocalDateTime.of(2020,10,30,15,00));
     public static final Statistic STATISTIC_3 = new Statistic(10, 36.8,
-            LocalDateTime.of(2020,
-                    10,
-                    31,
-                    12,
-                    00));
+            LocalDateTime.of(2020,10,31,12,00));
     public static final Statistic STATISTIC_ADMIN_1 = new Statistic(11, 36.4,
-            LocalDateTime.of(2020,
-                    11,
-                    1,
-                    10,
-                    20));
+            LocalDateTime.of(2020,11,1,10,20));
 
     public static final Symptom SYMPTOM_1 = new Symptom(3, "snuffle");
     public static final Symptom SYMPTOM_2 = new Symptom(4, "cough");
@@ -55,11 +39,7 @@ public class StatisticTestData {
 
     public static Statistic getUpdated() {
         return new Statistic(STATISTIC_ADMIN_1.getId(), 39.4,
-                LocalDateTime.of(2020,
-                        11,
-                        2,
-                        16,
-                        10));
+                LocalDateTime.of(2020,11,2,16,10));
     }
 
 
