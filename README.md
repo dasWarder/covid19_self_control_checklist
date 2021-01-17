@@ -10,9 +10,9 @@ Spring MVC/Security/Data,
 Jackson, ORM (Hibernate), JUnit 5, Hamcrest, 
 PostgreSQL, REST
 
-###Version
+### Version
 1.0.0
 
-####Author
+#### Author
 Andrey Babichev (github: dasWarder)
 
